@@ -8,27 +8,47 @@ public class Adress
     private String adress;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
-    @OneToOne
-    private User user;
 
-    public void setUser(User user)
-    {
-        this.user = user;
-    }
 
-    public User getUser()
+//    @OneToOne
+//    private Person person;
+//
+//    public void setPerson(Person person)
+//    {
+//        this.person = person;
+//    }
+//
+//    public Person getPerson()
+//    {
+//        return person;
+//    }
+
+    public Adress(){}
+
+    public Adress(String adress)
     {
-        return user;
+        this.adress = adress;
     }
 
     @Override
     public String toString()
     {
-        return adress;
+        return "-- Adress -- {" +
+                "id = " + id +
+                ", adress = " + adress.toString();
     }
+
+//    public Person getPerson()
+//    {
+//        return "-- Adress --" +
+//                "adress" + id +
+//                ", movie=" + movie.toString() +
+//                ", actor=" + actor.toString() +
+//                '}';
+//    }
 
     public String getAdress()
     {
@@ -38,16 +58,6 @@ public class Adress
     public void setAdress(String adress)
     {
         this.adress = adress;
-    }
-
-    public Long getId()
-    {
-        return id;
-    }
-
-    public void setId(Long id)
-    {
-        this.id = id;
     }
 
 }

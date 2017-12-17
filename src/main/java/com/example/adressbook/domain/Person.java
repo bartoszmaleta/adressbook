@@ -3,35 +3,49 @@ package com.example.adressbook.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class User
+public class Person
 {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     private String firstname;
     private String lastname;
 
-    public User(String firstname, String lastname)
+    @OneToOne
+    private Adress adress;
+
+    public void setAdress(Adress adress)
+    {
+        this.adress = adress;
+    }
+
+    public Person(String firstname, String lastname)
     {
         this.firstname = firstname;
         this.lastname = lastname;
     }
 
     @Override
-    public String toString()
-    {
-        return String.format("id:%s, %s, %s", id, firstname, lastname);
+//    public String toString()
+//    {
+//        return String.format("id:%s, %s, %s", id, firstname, lastname);
+//    }
+
+    public String toString() {
+        return "-- Person -- " +
+                "id = " + id +
+                ", firstname = " + firstname + '\'' +
+                ", lastName = '" + lastname + '\'' +
+                ", addressOfUser='" + adress + '\'' +
+                '}';
     }
 
-    public User() {}
+    public Person() {}
 
-    public Integer getId()
-    {
-        return id;
-    }
 
     public String getFirstname()
     {
@@ -43,10 +57,6 @@ public class User
         return lastname;
     }
 
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
 
     public void setFirstname(String firstname)
     {

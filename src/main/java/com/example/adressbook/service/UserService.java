@@ -1,6 +1,7 @@
 package com.example.adressbook.service;
 
-import com.example.adressbook.domain.User;
+import com.example.adressbook.domain.Adress;
+import com.example.adressbook.domain.Person;
 import com.example.adressbook.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,29 +16,31 @@ public class UserService
     @Autowired
     private UserRepository userRepository;
 
-//    public List<User> getAllUsers()
-////    {
-////        List<User> results = new ArrayList<>();
-//////        Iterator<User> temp = userRepository.findAll();
-//////        temp.forEach(user -> results.add(user));
-//////        return results;
-////        // TODO do list
-////    }
-
-    public void addUser(User user)
+    public List<Person> getAllUsers()
     {
-        userRepository.save(user);
+        List<Person> results = new ArrayList<>();
+        Iterator<Person> temp = (Iterator<Person>) userRepository.findAll();
+        temp.forEachRemaining(person -> results.add(person));
+        return results;
+         // TODO do list
+    }
+
+    public void addUser(Person person)
+    {
+        userRepository.save(person);
     }
 
 
-//    public User getUserByFirstname(String name){
-//        User result = null;
-//        try {
-//            result = userRepository.findUserByFirstname(name);
-//        } catch (Exception e){
-//
-//            System.out.printf("error !");
-//        }
-//        return result;
-//    }
+    public Person getUserByAdress(String adress){
+        Person result = null;
+        try {
+            result = userRepository.findPersonByAdress(adress);
+        } catch (Exception e){
+
+            System.out.printf("error !");
+        }
+        return result;
+    }
+
+
 }
