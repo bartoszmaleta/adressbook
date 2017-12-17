@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AdressBookRepository extends CrudRepository<Adress, Integer>
 {
-    List<Adress> findAdressByUser_Firstname(String firstname);
+//    public Adress findAdressByUser_Firstname(String firstname);
 
 }

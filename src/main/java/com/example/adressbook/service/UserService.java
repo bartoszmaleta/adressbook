@@ -30,14 +30,14 @@ public class UserService
     }
 
 
-    public User getActorByName(String name){
-        User result = null;
-        try {
-            result = userRepository.findUserByFirstname(name);
-        } catch (Exception e){
-
-            System.out.printf("error !");
-        }
-        return result;
-    }
+//    public User getUserByFirstname(String name){
+//        User result = null;
+//        try {
+//            result = userRepository.findUserByFirstname(name);
+//        } catch (Exception e){
+//
+//            System.out.printf("error !");
+//        }
+//        return result;
+//    }
 }
